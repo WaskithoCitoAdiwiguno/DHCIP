@@ -6,200 +6,7 @@
     <title>DAMRI Human Capital Intelligence Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1a3a6c;
-            --secondary-color: #e63946;
-            --accent-color: #457b9d;
-            --light-color: #f1faee;
-            --dark-color: #1d3557;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color) !important;
-        }
-        
-        .sidebar {
-            background-color: var(--primary-color);
-            min-height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 250px;
-            z-index: 1000;
-            padding-top: 70px;
-            transition: all 0.3s;
-        }
-        
-        .sidebar .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            padding: 12px 20px;
-            border-radius: 0;
-            transition: all 0.3s;
-        }
-        
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .sidebar .nav-link i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-        
-        .card-custom {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 25px;
-            transition: transform 0.3s;
-        }
-        
-        .card-custom:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
-            color: white;
-        }
-        
-        .stat-card-alt {
-            background: linear-gradient(135deg, var(--accent-color), #a8dadc);
-            color: white;
-        }
-        
-        .stat-card-warning {
-            background: linear-gradient(135deg, #e63946, #f77f00);
-            color: white;
-        }
-        
-        .employee-card {
-            cursor: pointer;
-            transition: all 0.3s;
-            border-left: 5px solid var(--primary-color);
-        }
-        
-        .employee-card:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .employee-card.high-potential {
-            border-left-color: #2a9d8f;
-        }
-        
-        .employee-card.needs-improvement {
-            border-left-color: #e63946;
-        }
-        
-        .progress-bar-custom {
-            height: 10px;
-            border-radius: 5px;
-        }
-        
-        .badge-custom {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 0.85rem;
-        }
-        
-        .modal-content {
-            border-radius: 15px;
-        }
-        
-        .modal-header {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        
-        .modal-footer {
-            border-top: none;
-            padding-top: 0;
-        }
-        
-        .competency-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            margin: 3px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            background-color: rgba(26, 58, 108, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .recommendation-box {
-            background: linear-gradient(135deg, #4361ee, #3a0ca3);
-            color: white;
-            border-radius: 15px;
-            padding: 20px;
-        }
-        
-        .filter-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        @media (max-width: 992px) {
-            .sidebar {
-                margin-left: -250px;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .sidebar.show {
-                margin-left: 0;
-            }
-        }
-        
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <link rel="stylesheet" href="/source/css/main.css" />
 </head>
 <body>
     <!-- Loading Screen -->
@@ -265,7 +72,7 @@
                     <h6 class="text-white-50 mb-3">Quick Actions</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" id="addEmployeeBtn">
                         <i class="fas fa-plus-circle"></i> Add Employee
                     </a>
                 </li>
@@ -558,837 +365,306 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Mock employee data
-        const employees = [
-            {
-                id: 1,
-                name: 'Waskitho Anton',
-                employeeId: 'DAM-001',
-                department: 'Operations',
-                position: 'Senior Manager',
-                attendance: { rate: 98, late: 2, absent: 1 },
-                kpi: { score: 92, trend: 'up', lastQuarter: 88 },
-                supervisorEvaluation: { score: 4.5, comments: 'Excellent leadership skills' },
-                training: { completed: 8, inProgress: 2, certifications: ['Advanced Management', 'Safety Compliance'] },
-                behavioralCompetencies: { score: 4.7, categories: ['Leadership', 'Communication', 'Teamwork'] },
-                technicalCompetencies: { score: 4.3, categories: ['Logistics', 'Fleet Management', 'Budgeting'] },
-                bonusEligibility: true,
-                promotionEligibility: true,
-                salaryScale: 'Grade 7',
-                cases: [
-                    { type: 'Achievement', description: 'Outstanding performance in Q3 2023', date: '2023-09-15' },
-                    { type: 'Warning', description: 'Late submission of reports', date: '2023-02-10', severity: 'Minor' }
-                ],
-                branchPerformance: { score: 89, rank: 3, targetAchievement: 105 },
-                recommendations: [
-                    'Suitable for regional director position',
-                    'Recommended for advanced leadership training',
-                    'High potential for executive track'
-                ],
-                suitability: {
-                    trainingField: 'Leadership Development',
-                    confidence: 95,
-                    dataSufficiency: 'High'
-                }
-            },
-            {
-                id: 2,
-                name: 'Gaiska W.P',
-                employeeId: 'DAM-002',
-                department: 'HR',
-                position: 'HR Specialist',
-                attendance: { rate: 95, late: 5, absent: 3 },
-                kpi: { score: 87, trend: 'stable', lastQuarter: 86 },
-                supervisorEvaluation: { score: 4.2, comments: 'Good interpersonal skills' },
-                training: { completed: 6, inProgress: 1, certifications: ['HR Compliance', 'Talent Management'] },
-                behavioralCompetencies: { score: 4.5, categories: ['Communication', 'Problem Solving', 'Adaptability'] },
-                technicalCompetencies: { score: 4.0, categories: ['Recruitment', 'Employee Relations', 'Compensation'] },
-                bonusEligibility: true,
-                promotionEligibility: false,
-                salaryScale: 'Grade 5',
-                cases: [
-                    { type: 'Achievement', description: 'Implemented new onboarding process', date: '2023-06-20' }
-                ],
-                branchPerformance: { score: 85, rank: 7, targetAchievement: 98 },
-                recommendations: [
-                    'Suitable for HR Manager position with additional training',
-                    'Recommended for conflict resolution training',
-                    'Potential for department leadership'
-                ],
-                suitability: {
-                    trainingField: 'Conflict Resolution',
-                    confidence: 88,
-                    dataSufficiency: 'Medium'
-                }
-            },
-            {
-                id: 3,
-                name: 'Uka-Syah',
-                employeeId: 'DAM-003',
-                department: 'Maintenance',
-                position: 'Technician',
-                attendance: { rate: 89, late: 8, absent: 7 },
-                kpi: { score: 78, trend: 'down', lastQuarter: 82 },
-                supervisorEvaluation: { score: 3.8, comments: 'Needs improvement in timeliness' },
-                training: { completed: 4, inProgress: 0, certifications: ['Basic Maintenance'] },
-                behavioralCompetencies: { score: 3.9, categories: ['Teamwork', 'Reliability', 'Initiative'] },
-                technicalCompetencies: { score: 4.1, categories: ['Vehicle Repair', 'Preventive Maintenance', 'Parts Management'] },
-                bonusEligibility: false,
-                promotionEligibility: false,
-                salaryScale: 'Grade 3',
-                cases: [
-                    { type: 'Warning', description: 'Repeated tardiness', date: '2023-01-15', severity: 'Major' },
-                    { type: 'Warning', description: 'Safety violation', date: '2023-04-22', severity: 'Major' }
-                ],
-                branchPerformance: { score: 76, rank: 15, targetAchievement: 85 },
-                recommendations: [
-                    'Requires performance improvement plan',
-                    'Recommended for time management training',
-                    'Not suitable for promotion at this time'
-                ],
-                suitability: {
-                    trainingField: 'Time Management',
-                    confidence: 75,
-                    dataSufficiency: 'Medium'
-                }
-            },
-            {
-                id: 4,
-                name: 'Patya',
-                employeeId: 'DAM-004',
-                department: 'Finance',
-                position: 'Accountant',
-                attendance: { rate: 99, late: 1, absent: 0 },
-                kpi: { score: 94, trend: 'up', lastQuarter: 91 },
-                supervisorEvaluation: { score: 4.7, comments: 'Exceptional attention to detail' },
-                training: { completed: 9, inProgress: 3, certifications: ['Advanced Accounting', 'Tax Compliance', 'Financial Analysis'] },
-                behavioralCompetencies: { score: 4.8, categories: ['Accuracy', 'Reliability', 'Problem Solving'] },
-                technicalCompetencies: { score: 4.6, categories: ['Financial Reporting', 'Budget Analysis', 'Audit Preparation'] },
-                bonusEligibility: true,
-                promotionEligibility: true,
-                salaryScale: 'Grade 6',
-                cases: [
-                    { type: 'Achievement', description: 'Identified cost savings of 15%', date: '2023-08-10' },
-                    { type: 'Achievement', description: 'Perfect audit result', date: '2023-11-05' }
-                ],
-                branchPerformance: { score: 93, rank: 2, targetAchievement: 112 },
-                recommendations: [
-                    'Ideal candidate for Finance Manager position',
-                    'Recommended for executive leadership program',
-                    'High potential for CFO track'
-                ],
-                suitability: {
-                    trainingField: 'Executive Leadership',
-                    confidence: 98,
-                    dataSufficiency: 'High'
-                }
-            },
-            {
-                id: 5,
-                name: 'Ayala C.R',
-                employeeId: 'DAM-005',
-                department: 'Operations',
-                position: 'Operations Supervisor',
-                attendance: { rate: 96, late: 3, absent: 2 },
-                kpi: { score: 89, trend: 'up', lastQuarter: 85 },
-                supervisorEvaluation: { score: 4.3, comments: 'Strong operational skills' },
-                training: { completed: 7, inProgress: 1, certifications: ['Operations Management', 'Safety Procedures'] },
-                behavioralCompetencies: { score: 4.4, categories: ['Leadership', 'Decision Making', 'Problem Solving'] },
-                technicalCompetencies: { score: 4.5, categories: ['Route Planning', 'Schedule Management', 'Resource Allocation'] },
-                bonusEligibility: true,
-                promotionEligibility: true,
-                salaryScale: 'Grade 6',
-                cases: [
-                    { type: 'Achievement', description: 'Improved operational efficiency by 20%', date: '2023-07-15' }
-                ],
-                branchPerformance: { score: 88, rank: 4, targetAchievement: 102 },
-                recommendations: [
-                    'Ready for Operations Manager position',
-                    'Recommended for advanced operations training',
-                    'High potential for regional management'
-                ],
-                suitability: {
-                    trainingField: 'Advanced Operations',
-                    confidence: 92,
-                    dataSufficiency: 'High'
-                }
-            },
-            {
-                id: 6,
-                name: 'Anton Waskitho',
-                employeeId: 'DAM-006',
-                department: 'HR',
-                position: 'Recruitment Specialist',
-                attendance: { rate: 94, late: 4, absent: 4 },
-                kpi: { score: 85, trend: 'stable', lastQuarter: 84 },
-                supervisorEvaluation: { score: 4.1, comments: 'Good recruiter with room for improvement' },
-                training: { completed: 5, inProgress: 2, certifications: ['Talent Acquisition', 'Interview Techniques'] },
-                behavioralCompetencies: { score: 4.2, categories: ['Communication', 'Interpersonal Skills', 'Organization'] },
-                technicalCompetencies: { score: 4.0, categories: ['Candidate Sourcing', 'Interview Process', 'Onboarding'] },
-                bonusEligibility: true,
-                promotionEligibility: false,
-                salaryScale: 'Grade 4',
-                cases: [
-                    { type: 'Warning', description: 'Missed recruitment target', date: '2023-03-20', severity: 'Minor' }
-                ],
-                branchPerformance: { score: 83, rank: 8, targetAchievement: 95 },
-                recommendations: [
-                    'Needs improvement in meeting targets',
-                    'Recommended for recruitment strategy training',
-                    'Potential for senior recruiter position'
-                ],
-                suitability: {
-                    trainingField: 'Recruitment Strategy',
-                    confidence: 80,
-                    dataSufficiency: 'Medium'
-                }
-            }
-        ];
-
-        // DOM Elements
-        const loadingScreen = document.getElementById('loadingScreen');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        const navLinks = document.querySelectorAll('.nav-link[data-tab]');
-        const tabs = {
-            dashboard: document.getElementById('dashboardTab'),
-            employees: document.getElementById('employeesTab'),
-            analytics: document.getElementById('analyticsTab'),
-            recommendations: document.getElementById('recommendationsTab')
-        };
-        const totalEmployees = document.getElementById('totalEmployees');
-        const statTotalEmployees = document.getElementById('statTotalEmployees');
-        const statAvgKPI = document.getElementById('statAvgKPI');
-        const statPromotionReady = document.getElementById('statPromotionReady');
-        const statNeedsImprovement = document.getElementById('statNeedsImprovement');
-        const employeeGrid = document.getElementById('employeeGrid');
-        const employeesGrid = document.getElementById('employeesGrid');
-        const departmentPerformance = document.getElementById('departmentPerformance');
-        const performanceDistribution = document.getElementById('performanceDistribution');
-        const trainingNeeds = document.getElementById('trainingNeeds');
-        const highPotentialList = document.getElementById('highPotentialList');
-        const developmentOpportunities = document.getElementById('developmentOpportunities');
-        const performanceImprovement = document.getElementById('performanceImprovement');
-
-        // Filter elements
-        const filterDepartment = document.getElementById('filterDepartment');
-        const filterPosition = document.getElementById('filterPosition');
-        const filterMinKPI = document.getElementById('filterMinKPI');
-        const filterNoWarnings = document.getElementById('filterNoWarnings');
-        
-        const empFilterDepartment = document.getElementById('empFilterDepartment');
-        const empFilterPosition = document.getElementById('empFilterPosition');
-        const empFilterMinKPI = document.getElementById('empFilterMinKPI');
-        const empFilterEligibility = document.getElementById('empFilterEligibility');
-
-        // Initialize the application
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading screen after 2 seconds
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 2000);
-
-            // Update stats
-            updateStats();
-            
-            // Render initial dashboard
-            renderEmployeeGrid(employees, employeeGrid);
-            renderEmployeeGrid(employees, employeesGrid);
-            renderAnalyticsData();
-            renderRecommendations();
-
-            // Sidebar toggle
-            sidebarToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('show');
-                document.querySelector('.main-content').classList.toggle('ml-250');
-            });
-
-            // Tab navigation
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
+    <!-- Add Employee Modal -->
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Employee</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills mb-4" id="addEmployeeTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="basic-tab" data-bs-toggle="pill" data-bs-target="#basic" type="button" role="tab">Basic Info</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="performance-tab" data-bs-toggle="pill" data-bs-target="#performance" type="button" role="tab">Performance</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="training-tab" data-bs-toggle="pill" data-bs-target="#training" type="button" role="tab">Training</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="competencies-tab" data-bs-toggle="pill" data-bs-target="#competencies" type="button" role="tab">Competencies</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="cases-tab" data-bs-toggle="pill" data-bs-target="#cases" type="button" role="tab">Cases & Records</button>
+                        </li>
+                    </ul>
                     
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Hide all tabs
-                    Object.values(tabs).forEach(tab => tab.classList.add('d-none'));
-                    
-                    // Show selected tab
-                    const tabId = this.getAttribute('data-tab');
-                    tabs[tabId].classList.remove('d-none');
-                });
-            });
-
-            // Filter event listeners
-            filterDepartment.addEventListener('change', applyFilters);
-            filterPosition.addEventListener('input', applyFilters);
-            filterMinKPI.addEventListener('input', applyFilters);
-            filterNoWarnings.addEventListener('change', applyFilters);
-            
-            empFilterDepartment.addEventListener('change', applyEmployeeFilters);
-            empFilterPosition.addEventListener('input', applyEmployeeFilters);
-            empFilterMinKPI.addEventListener('input', applyEmployeeFilters);
-            empFilterEligibility.addEventListener('change', applyEmployeeFilters);
-        });
-
-        // Update statistics
-        function updateStats() {
-            totalEmployees.textContent = employees.length;
-            statTotalEmployees.textContent = employees.length;
-            
-            const avgKPI = (employees.reduce((sum, emp) => sum + emp.kpi.score, 0) / employees.length).toFixed(1);
-            statAvgKPI.textContent = avgKPI;
-            
-            const promotionReady = employees.filter(emp => emp.promotionEligibility).length;
-            statPromotionReady.textContent = promotionReady;
-            
-            const needsImprovement = employees.filter(emp => emp.kpi.score < 80).length;
-            statNeedsImprovement.textContent = needsImprovement;
-        }
-
-        // Apply filters to dashboard
-        function applyFilters() {
-            const filtered = employees.filter(emp => {
-                return (
-                    (filterDepartment.value === '' || emp.department === filterDepartment.value) &&
-                    (filterPosition.value === '' || emp.position.toLowerCase().includes(filterPosition.value.toLowerCase())) &&
-                    (filterMinKPI.value === '' || emp.kpi.score >= parseInt(filterMinKPI.value)) &&
-                    (!filterNoWarnings.checked || !emp.cases.some(c => c.type === 'Warning'))
-                );
-            });
-            
-            renderEmployeeGrid(filtered, employeeGrid);
-        }
-
-        // Apply filters to employees tab
-        function applyEmployeeFilters() {
-            const filtered = employees.filter(emp => {
-                let matches = true;
-                
-                if (empFilterDepartment.value !== '') {
-                    matches = matches && emp.department === empFilterDepartment.value;
-                }
-                
-                if (empFilterPosition.value !== '') {
-                    matches = matches && emp.position.toLowerCase().includes(empFilterPosition.value.toLowerCase());
-                }
-                
-                if (empFilterMinKPI.value !== '') {
-                    matches = matches && emp.kpi.score >= parseInt(empFilterMinKPI.value);
-                }
-                
-                if (empFilterEligibility.value !== '') {
-                    if (empFilterEligibility.value === 'bonus') {
-                        matches = matches && emp.bonusEligibility;
-                    } else if (empFilterEligibility.value === 'promotion') {
-                        matches = matches && emp.promotionEligibility;
-                    }
-                }
-                
-                return matches;
-            });
-            
-            renderEmployeeGrid(filtered, employeesGrid);
-        }
-
-        // Render employee grid
-        function renderEmployeeGrid(employeeList, container) {
-            container.innerHTML = '';
-            
-            if (employeeList.length === 0) {
-                container.innerHTML = '<div class="col-12"><div class="alert alert-info">No employees match the current filters.</div></div>';
-                return;
-            }
-            
-            employeeList.forEach(emp => {
-                const cardClass = emp.kpi.score >= 90 ? 'high-potential' : emp.kpi.score < 80 ? 'needs-improvement' : '';
-                
-                const card = document.createElement('div');
-                card.className = `col-md-6 col-lg-4`;
-                card.innerHTML = `
-                    <div class="card employee-card ${cardClass} card-custom" data-id="${emp.id}">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div>
-                                    <h5 class="card-title mb-1">${emp.name}</h5>
-                                    <p class="card-text text-muted small">${emp.position}</p>
-                                    <p class="card-text text-muted small">${emp.department} • ${emp.employeeId}</p>
-                                </div>
-                                <div class="text-end">
-                                    <div class="badge ${emp.kpi.score >= 90 ? 'bg-success' : emp.kpi.score >= 80 ? 'bg-primary' : 'bg-warning'}">
-                                        KPI: ${emp.kpi.score}
+                    <div class="tab-content" id="addEmployeeTabsContent">
+                        <!-- Basic Info Tab -->
+                        <div class="tab-pane fade show active" id="basic" role="tabpanel">
+                            <div class="form-section">
+                                <h5 class="fw-bold mb-4">Basic Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Full Name</label>
+                                        <input type="text" class="form-control" id="employeeName" placeholder="Enter full name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Employee ID</label>
+                                        <input type="text" class="form-control" id="employeeId" placeholder="Enter employee ID">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Department</label>
+                                        <select class="form-select" id="employeeDepartment">
+                                            <option value="">Select Department</option>
+                                            <option value="Operations">Operations</option>
+                                            <option value="HR">HR</option>
+                                            <option value="Maintenance">Maintenance</option>
+                                            <option value="Finance">Finance</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Position</label>
+                                        <input type="text" class="form-control" id="employeePosition" placeholder="Enter position">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Salary Scale</label>
+                                        <select class="form-select" id="salaryScale">
+                                            <option value="">Select Salary Scale</option>
+                                            <option value="Grade 1">Grade 1</option>
+                                            <option value="Grade 2">Grade 2</option>
+                                            <option value="Grade 3">Grade 3</option>
+                                            <option value="Grade 4">Grade 4</option>
+                                            <option value="Grade 5">Grade 5</option>
+                                            <option value="Grade 6">Grade 6</option>
+                                            <option value="Grade 7">Grade 7</option>
+                                            <option value="Grade 8">Grade 8</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Hire Date</label>
+                                        <input type="date" class="form-control" id="hireDate">
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="row g-2 mb-3">
-                                <div class="col-6">
-                                    <small class="text-muted">Attendance</small>
-                                    <div class="fw-bold">${emp.attendance.rate}%</div>
-                                </div>
-                                <div class="col-6">
-                                    <small class="text-muted">Bonus Eligible</small>
-                                    <div class="fw-bold ${emp.bonusEligibility ? 'text-success' : 'text-danger'}">
-                                        ${emp.bonusEligibility ? 'Yes' : 'No'}
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Attendance Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Attendance Rate (%)</label>
+                                        <input type="number" class="form-control" id="attendanceRate" min="0" max="100" placeholder="e.g. 95">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Days Late</label>
+                                        <input type="number" class="form-control" id="daysLate" min="0" placeholder="e.g. 3">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Days Absent</label>
+                                        <input type="number" class="form-control" id="daysAbsent" min="0" placeholder="e.g. 1">
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="badge ${emp.suitability.confidence >= 90 ? 'bg-success' : emp.suitability.confidence >= 75 ? 'bg-warning' : 'bg-danger'}">
-                                    Confidence: ${emp.suitability.confidence}%
-                                </span>
-                                <small class="text-muted">Data: ${emp.suitability.dataSufficiency}</small>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
-            
-            // Add click event listeners to employee cards
-            document.querySelectorAll('.employee-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const employeeId = parseInt(this.getAttribute('data-id'));
-                    const employee = employees.find(emp => emp.id === employeeId);
-                    showEmployeeModal(employee);
-                });
-            });
-        }
-
-        // Render analytics data
-        function renderAnalyticsData() {
-            // Department Performance
-            const departments = ['Operations', 'HR', 'Maintenance', 'Finance'];
-            let deptHTML = '';
-            
-            departments.forEach(dept => {
-                const deptEmployees = employees.filter(emp => emp.department === dept);
-                const avgKPI = deptEmployees.length > 0 ? 
-                    (deptEmployees.reduce((sum, emp) => sum + emp.kpi.score, 0) / deptEmployees.length).toFixed(1) : 0;
-                const promotionReady = deptEmployees.filter(emp => emp.promotionEligibility).length;
-                
-                deptHTML += `
-                    <div class="mb-4 p-3 bg-light rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="fw-bold mb-1">${dept}</h6>
-                                <small class="text-muted">${deptEmployees.length} employees</small>
-                            </div>
-                            <div class="text-end">
-                                <div class="fw-bold text-primary">${avgKPI}</div>
-                                <small class="text-muted">${promotionReady} promotion ready</small>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            departmentPerformance.innerHTML = deptHTML;
-            
-            // Performance Distribution
-            const ranges = [
-                { label: '90-100 (Excellent)', min: 90, max: 100, color: 'success' },
-                { label: '80-89 (Good)', min: 80, max: 89, color: 'primary' },
-                { label: '70-79 (Average)', min: 70, max: 79, color: 'warning' },
-                { label: 'Below 70 (Needs Improvement)', min: 0, max: 69, color: 'danger' }
-            ];
-            
-            let distHTML = '';
-            
-            ranges.forEach(range => {
-                const count = employees.filter(emp => 
-                    emp.kpi.score >= range.min && emp.kpi.score <= range.max
-                ).length;
-                const percentage = employees.length > 0 ? (count / employees.length * 100).toFixed(1) : 0;
-                
-                distHTML += `
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="fw-medium">${range.label}</span>
-                            <span class="fw-bold">${count} employees (${percentage}%)</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-${range.color} progress-bar-custom" role="progressbar" style="width: ${percentage}%" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            performanceDistribution.innerHTML = distHTML;
-            
-            // Training Needs
-            const trainingFields = [
-                { field: 'Leadership Development', icon: 'fa-user-tie' },
-                { field: 'Conflict Resolution', icon: 'fa-handshake' },
-                { field: 'Time Management', icon: 'fa-clock' },
-                { field: 'Executive Leadership', icon: 'fa-chart-line' },
-                { field: 'Advanced Operations', icon: 'fa-cogs' },
-                { field: 'Recruitment Strategy', icon: 'fa-search' }
-            ];
-            
-            let trainingHTML = '<div class="row g-3">';
-            
-            trainingFields.forEach(item => {
-                const count = employees.filter(emp => emp.suitability.trainingField === item.field).length;
-                
-                trainingHTML += `
-                    <div class="col-md-6 col-lg-4">
-                        <div class="p-3 bg-light border rounded text-center">
-                            <div class="mb-2">
-                                <i class="fas ${item.icon} fa-2x text-primary"></i>
-                            </div>
-                            <h6 class="fw-bold mb-1">${item.field}</h6>
-                            <div class="display-6 fw-bold text-primary">${count}</div>
-                            <small class="text-muted">employees recommended</small>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            trainingHTML += '</div>';
-            trainingNeeds.innerHTML = trainingHTML;
-        }
-
-        // Render recommendations
-        function renderRecommendations() {
-            // High Potential
-            const highPotential = employees.filter(emp => emp.suitability.confidence >= 90 && emp.promotionEligibility);
-            let highHTML = '';
-            
-            highPotential.forEach(emp => {
-                highHTML += `
-                    <div class="mb-3 p-3 bg-white bg-opacity-25 rounded">
-                        <h6 class="fw-bold mb-1">${emp.name}</h6>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <small>KPI: ${emp.kpi.score}</small>
-                            <small>Confidence: ${emp.suitability.confidence}%</small>
-                        </div>
-                        <p class="mb-0 small">${emp.recommendations[0]}</p>
-                    </div>
-                `;
-            });
-            
-            if (highPotential.length === 0) {
-                highHTML = '<p class="text-center text-white-50">No high potential employees found</p>';
-            }
-            
-            highPotentialList.innerHTML = highHTML;
-            
-            // Development Opportunities
-            const development = employees.filter(emp => emp.suitability.confidence >= 75 && emp.suitability.confidence < 90);
-            let devHTML = '';
-            
-            development.forEach(emp => {
-                devHTML += `
-                    <div class="mb-3 p-3 bg-white bg-opacity-25 rounded">
-                        <h6 class="fw-bold mb-1">${emp.name}</h6>
-                        <div class="mb-2">
-                            <small>Training: ${emp.suitability.trainingField}</small>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small>Confidence: ${emp.suitability.confidence}%</small>
-                            <small>Data: ${emp.suitability.dataSufficiency}</small>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            if (development.length === 0) {
-                devHTML = '<p class="text-center text-white-50">No development opportunities found</p>';
-            }
-            
-            developmentOpportunities.innerHTML = devHTML;
-            
-            // Performance Improvement
-            const improvement = employees.filter(emp => emp.suitability.confidence < 75);
-            let impHTML = '';
-            
-            improvement.forEach(emp => {
-                impHTML += `
-                    <div class="mb-3 p-3 bg-white bg-opacity-25 rounded">
-                        <h6 class="fw-bold mb-1">${emp.name}</h6>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <small>KPI: ${emp.kpi.score}</small>
-                            <small>Confidence: ${emp.suitability.confidence}%</small>
-                        </div>
-                        <p class="mb-0 small">${emp.recommendations[0]}</p>
-                    </div>
-                `;
-            });
-            
-            if (improvement.length === 0) {
-                impHTML = '<p class="text-center text-white-50">No performance improvement cases found</p>';
-            }
-            
-            performanceImprovement.innerHTML = impHTML;
-        }
-
-        // Show employee modal
-        function showEmployeeModal(employee) {
-            const modalTitle = document.getElementById('employeeModalTitle');
-            const modalBody = document.getElementById('employeeModalBody');
-            
-            modalTitle.textContent = `Employee Profile: ${employee.name}`;
-            
-            // Build case records HTML
-            let casesHTML = '';
-            employee.cases.forEach(caseRecord => {
-                const caseClass = caseRecord.type === 'Achievement' ? 'border-success bg-success bg-opacity-10' : 'border-danger bg-danger bg-opacity-10';
-                const caseIcon = caseRecord.type === 'Achievement' ? 'fa-trophy' : 'fa-exclamation-triangle';
-                const caseTitle = caseRecord.type === 'Achievement' ? 'text-success' : 'text-danger';
-                
-                casesHTML += `
-                    <div class="mb-3 p-3 border-start border-3 ${caseClass} rounded">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h6 class="fw-bold ${caseTitle} mb-1">
-                                    <i class="fas ${caseIcon} me-2"></i>
-                                    ${caseRecord.type}
-                                </h6>
-                                <p class="mb-1">${caseRecord.description}</p>
-                            </div>
-                            <div class="text-end">
-                                <small class="text-muted">${caseRecord.date}</small>
-                                ${caseRecord.severity ? `<div class="mt-1"><span class="badge bg-${caseRecord.severity === 'Major' ? 'danger' : 'warning'}">${caseRecord.severity}</span></div>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            // Build certifications HTML
-            let certsHTML = '';
-            employee.training.certifications.forEach(cert => {
-                certsHTML += `<span class="badge bg-primary me-2 mb-2">${cert}</span>`;
-            });
-            
-            // Build behavioral competencies HTML
-            let behavioralHTML = '';
-            employee.behavioralCompetencies.categories.forEach(cat => {
-                behavioralHTML += `<span class="competency-tag">${cat}</span>`;
-            });
-            
-            // Build technical competencies HTML
-            let technicalHTML = '';
-            employee.technicalCompetencies.categories.forEach(cat => {
-                technicalHTML += `<span class="competency-tag">${cat}</span>`;
-            });
-            
-            // Build recommendations HTML
-            let recommendationsHTML = '';
-            employee.recommendations.forEach(rec => {
-                recommendationsHTML += `
-                    <div class="d-flex mb-3">
-                        <div class="me-3" style="min-width: 8px;">
-                            <div class="w-2 h-2 bg-white rounded-circle mt-2"></div>
-                        </div>
-                        <div>
-                            <p class="mb-0 text-white">${rec}</p>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            modalBody.innerHTML = `
-                <div class="row mb-4">
-                    <div class="col-md-8">
-                        <h3 class="fw-bold">${employee.name}</h3>
-                        <h5 class="text-primary">${employee.position}</h5>
-                        <p class="text-muted">${employee.department} • ${employee.employeeId}</p>
-                    </div>
-                    <div class="col-md-4 text-md-end">
-                        <div class="display-3 fw-bold text-primary">${employee.kpi.score}</div>
-                        <p class="text-muted">Overall KPI Score</p>
-                    </div>
-                </div>
-                
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        <div class="p-3 bg-light rounded">
-                            <small class="text-muted">Attendance Rate</small>
-                            <div class="fw-bold fs-4">${employee.attendance.rate}%</div>
-                            <small class="text-muted">${employee.attendance.late} late, ${employee.attendance.absent} absent</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 bg-light rounded">
-                            <small class="text-muted">Supervisor Rating</small>
-                            <div class="fw-bold fs-4">${employee.supervisorEvaluation.score}/5.0</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="p-3 bg-light rounded">
-                            <small class="text-muted">Salary Scale</small>
-                            <div class="fw-bold fs-4">${employee.salaryScale}</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="p-3 bg-light rounded mb-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <small class="text-muted">Bonus Eligible</small>
-                                <span class="badge ${employee.bonusEligibility ? 'bg-success' : 'bg-danger'}">
-                                    ${employee.bonusEligibility ? 'Yes' : 'No'}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-3 bg-light rounded">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <small class="text-muted">Promotion Eligible</small>
-                                <span class="badge ${employee.promotionEligibility ? 'bg-success' : 'bg-danger'}">
-                                    ${employee.promotionEligibility ? 'Yes' : 'No'}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="p-3 bg-light rounded">
-                            <h6 class="fw-bold mb-3">Branch Performance</h6>
-                            <div class="row">
-                                <div class="col-4">
-                                    <small class="text-muted">Score</small>
-                                    <div class="fw-bold">${employee.branchPerformance.score}</div>
-                                </div>
-                                <div class="col-4">
-                                    <small class="text-muted">Rank</small>
-                                    <div class="fw-bold">#${employee.branchPerformance.rank}</div>
-                                </div>
-                                <div class="col-4">
-                                    <small class="text-muted">Target</small>
-                                    <div class="fw-bold text-success">${employee.branchPerformance.targetAchievement}%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                <h6 class="mb-0">Behavioral Competencies</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <small>Overall Score</small>
-                                    <small>${employee.behavioralCompetencies.score}/5.0</small>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-primary progress-bar-custom" role="progressbar" style="width: ${(employee.behavioralCompetencies.score / 5) * 100}%" aria-valuenow="${(employee.behavioralCompetencies.score / 5) * 100}" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h6 class="fw-bold mb-2">Key Areas:</h6>
-                                <div>${behavioralHTML}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-info text-white">
-                                <h6 class="mb-0">Technical Competencies</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <small>Overall Score</small>
-                                    <small>${employee.technicalCompetencies.score}/5.0</small>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-info progress-bar-custom" role="progressbar" style="width: ${(employee.technicalCompetencies.score / 5) * 100}%" aria-valuenow="${(employee.technicalCompetencies.score / 5) * 100}" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h6 class="fw-bold mb-2">Key Areas:</h6>
-                                <div>${technicalHTML}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-success text-white">
-                                <h6 class="mb-0">Training & Certification</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="row mb-4">
-                                    <div class="col-4">
-                                        <small class="text-muted">Completed</small>
-                                        <div class="fw-bold text-success fs-4">${employee.training.completed}</div>
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Eligibility</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="bonusEligibility">
+                                            <label class="form-check-label" for="bonusEligibility">Bonus Eligible</label>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <small class="text-muted">In Progress</small>
-                                        <div class="fw-bold text-warning fs-4">${employee.training.inProgress}</div>
-                                    </div>
-                                    <div class="col-4">
-                                        <small class="text-muted">Certifications</small>
-                                        <div class="fw-bold text-primary fs-4">${employee.training.certifications.length}</div>
-                                    </div>
-                                </div>
-                                <h6 class="fw-bold mb-2">Certifications:</h6>
-                                <div>${certsHTML}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header bg-warning text-white">
-                                <h6 class="mb-0">Case Records</h6>
-                            </div>
-                            <div class="card-body">
-                                ${casesHTML || '<p class="text-center text-muted">No case records found</p>'}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="recommendation-box p-4">
-                    <h5 class="fw-bold mb-4">AI-Powered Recommendations</h5>
-                    ${recommendationsHTML}
-                    
-                    <div class="mt-4 pt-3 border-top border-white">
-                        <h6 class="fw-bold mb-3">Training Suitability</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <small>Recommended Field</small>
-                                <div class="fw-bold">${employee.suitability.trainingField}</div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small>Confidence Level</small>
-                                    <div class="d-flex align-items-center">
-                                        <span class="me-2 fw-bold">${employee.suitability.confidence}%</span>
-                                        <div class="progress" style="width: 150px;">
-                                            <div class="progress-bar bg-white progress-bar-striped progress-bar-animated" role="progressbar" style="width: ${employee.suitability.confidence}%" aria-valuenow="${employee.suitability.confidence}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="col-md-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="promotionEligibility">
+                                            <label class="form-check-label" for="promotionEligibility">Promotion Eligible</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3">
-                            <small>Data Sufficiency: <span class="fw-bold">${employee.suitability.dataSufficiency}</span></small>
-                            <p class="mb-0 text-white-75">
-                                ${employee.suitability.dataSufficiency === 'High' ? 'Comprehensive data available for accurate recommendations' : 
-                                  employee.suitability.dataSufficiency === 'Medium' ? 'Moderate data available, recommendations based on available information' : 
-                                  'Limited data available, recommendations may have higher uncertainty'}
-                            </p>
+                        
+                        <!-- Performance Tab -->
+                        <div class="tab-pane fade" id="performance" role="tabpanel">
+                            <div class="form-section">
+                                <h5 class="fw-bold mb-4">KPI & Performance Metrics</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Current KPI Score</label>
+                                        <input type="number" class="form-control" id="kpiScore" min="0" max="100" step="0.1" placeholder="e.g. 87.5">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Last Quarter KPI</label>
+                                        <input type="number" class="form-control" id="lastQuarterKPI" min="0" max="100" step="0.1" placeholder="e.g. 85.2">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">KPI Trend</label>
+                                        <select class="form-select" id="kpiTrend">
+                                            <option value="up">Up</option>
+                                            <option value="stable">Stable</option>
+                                            <option value="down">Down</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Supervisor Evaluation</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Evaluation Score (1-5)</label>
+                                        <input type="number" class="form-control" id="supervisorScore" min="1" max="5" step="0.1" placeholder="e.g. 4.5">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="form-label">Comments</label>
+                                        <textarea class="form-control" id="supervisorComments" rows="3" placeholder="Enter supervisor comments"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Branch Performance</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Performance Score</label>
+                                        <input type="number" class="form-control" id="branchScore" min="0" max="100" placeholder="e.g. 89">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Rank</label>
+                                        <input type="number" class="form-control" id="branchRank" min="1" placeholder="e.g. 3">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Target Achievement (%)</label>
+                                        <input type="number" class="form-control" id="targetAchievement" min="0" placeholder="e.g. 105">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Training Tab -->
+                        <div class="tab-pane fade" id="training" role="tabpanel">
+                            <div class="form-section">
+                                <h5 class="fw-bold mb-4">Training & Certification</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Completed Trainings</label>
+                                        <input type="number" class="form-control" id="completedTrainings" min="0" placeholder="e.g. 5">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Trainings In Progress</label>
+                                        <input type="number" class="form-control" id="inProgressTrainings" min="0" placeholder="e.g. 2">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Certifications</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Certifications (Press Enter after each)</label>
+                                    <input type="text" class="form-control" id="certificationInput" placeholder="Type certification and press Enter">
+                                    <div class="form-text">Current certifications: <span id="certificationCount">0</span></div>
+                                </div>
+                                <div id="certificationList" class="border rounded p-3" style="min-height: 100px;">
+                                    <p class="text-muted mb-0" id="certificationPlaceholder">No certifications added yet</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Competencies Tab -->
+                        <div class="tab-pane fade" id="competencies" role="tabpanel">
+                            <div class="form-section">
+                                <h5 class="fw-bold mb-4">Behavioral Competencies</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Score (1-5)</label>
+                                        <input type="number" class="form-control" id="behavioralScore" min="1" max="5" step="0.1" placeholder="e.g. 4.2">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label">Key Areas (Press Enter after each)</label>
+                                    <input type="text" class="form-control" id="behavioralInput" placeholder="Type behavioral competency and press Enter">
+                                    <div class="form-text">Current areas: <span id="behavioralCount">0</span></div>
+                                </div>
+                                <div id="behavioralList" class="border rounded p-3 mt-2" style="min-height: 100px;">
+                                    <p class="text-muted mb-0" id="behavioralPlaceholder">No behavioral competencies added yet</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">Technical Competencies</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label required">Score (1-5)</label>
+                                        <input type="number" class="form-control" id="technicalScore" min="1" max="5" step="0.1" placeholder="e.g. 4.5">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label">Key Areas (Press Enter after each)</label>
+                                    <input type="text" class="form-control" id="technicalInput" placeholder="Type technical competency and press Enter">
+                                    <div class="form-text">Current areas: <span id="technicalCount">0</span></div>
+                                </div>
+                                <div id="technicalList" class="border rounded p-3 mt-2" style="min-height: 100px;">
+                                    <p class="text-muted mb-0" id="technicalPlaceholder">No technical competencies added yet</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cases & Records Tab -->
+                        <div class="tab-pane fade" id="cases" role="tabpanel">
+                            <div class="form-section">
+                                <h5 class="fw-bold mb-4">Case Records</h5>
+                                <div class="mb-4">
+                                    <button type="button" class="btn btn-primary" id="addCaseBtn">
+                                        <i class="fas fa-plus me-2"></i>Add New Case
+                                    </button>
+                                </div>
+                                <div id="casesContainer">
+                                    <!-- Cases will be added here dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">AI Recommendation Settings</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Recommended Training Field</label>
+                                        <input type="text" class="form-control" id="trainingField" placeholder="e.g. Leadership Development">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Confidence Level (%)</label>
+                                        <input type="number" class="form-control" id="confidenceLevel" min="0" max="100" placeholder="e.g. 95">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label required">Data Sufficiency</label>
+                                        <select class="form-select" id="dataSufficiency">
+                                            <option value="High">High</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Low">Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section mt-4">
+                                <h5 class="fw-bold mb-4">AI Recommendations</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">Add Recommendations (Press Enter after each)</label>
+                                    <input type="text" class="form-control" id="recommendationInput" placeholder="Type recommendation and press Enter">
+                                    <div class="form-text">Current recommendations: <span id="recommendationCount">0</span></div>
+                                </div>
+                                <div id="recommendationList" class="border rounded p-3" style="min-height: 150px;">
+                                    <p class="text-muted mb-0" id="recommendationPlaceholder">No recommendations added yet</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            `;
-            
-            // Show modal
-            const modal = new bootstrap.Modal(document.getElementById('employeeModal'));
-            modal.show();
-        }
-    </script>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="saveEmployeeBtn">
+                        <i class="fas fa-save me-2"></i>Save Employee
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="source/js/app.js"></script>
 </body>
 </html>
